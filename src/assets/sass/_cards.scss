@@ -1,0 +1,51 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    .card-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+
+     >:last-child {
+            position: absolute;
+            float: right;
+            right: 0;
+            color: $title-color;
+            font-size: 12px;
+        }
+    }
+    .card-body {
+        display: flex;
+        flex-direction: column;
+
+        h3, p {
+            margin: 4px;
+        }
+        h3 {
+            font-weight: bold;
+        }
+        p {
+            text-overflow: ellipsis;
+            overflow:hidden;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+            max-height: 200px;  
+            max-width: 272px;              
+        }
+    }
+    .card-footer{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        color: $title-color;
+        font-size: 12px;
+    }
+
+    span{
+        padding: 3px;
+    }
+}

@@ -1,0 +1,20 @@
+.results-count {
+    border: 1px solid $primary-gray;
+    color: $secondary-color;
+    font-size: 12px;
+    border-radius: 8px;
+    text-align: center;
+    width: 100px;
+    margin: auto calc(50% - 50px);
+}
+
+.pagination {
+    list-style-type: none;
+    text-align: center;
+    padding: 5px;
+    li {
+        display: inline-block;
+        padding: 2px 4px;
+        cursor: pointer;
+    }
+}
