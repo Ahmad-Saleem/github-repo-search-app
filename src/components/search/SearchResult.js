@@ -8,7 +8,7 @@ class SearchResult extends Component {
 
     render(){
         const { results } = this.props;
-        const validate = results.data && results.data.items && results.status === 'success' && results.query != '';
+        const validate = results.data && results.data.items && results.status === 'success' && results.query !== '';
         return (
             <div className='container'> 
                 {
