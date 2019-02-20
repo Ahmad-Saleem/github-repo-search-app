@@ -5,7 +5,7 @@ export const SEARCH_BY_REPO_NAME = 'SEARCH_BY_REPO_NAME';
 export const searchByRepoName = (query, page) => {
     return (dispatch) => {
     
-        dispatch(requestStart(SEARCH_BY_REPO_NAME));
+        dispatch(requestStart(SEARCH_BY_REPO_NAME, query));
 
         const request = axios.get(`https://api.github.com/search/repositories?q=${query}&sort=stars&order=desc&page=${page}`);
         

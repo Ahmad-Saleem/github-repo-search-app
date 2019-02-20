@@ -11,7 +11,7 @@ export const requestSuccess =
         }
     }
 
-export const requestStart = (actionType) => 
+export const requestStart = (actionType, query) => 
 {
     return {
         type: actionType,

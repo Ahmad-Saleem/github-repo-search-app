@@ -12,23 +12,33 @@ class SearchForm extends Component {
         }
 
         this._onChange.bind(this);
+        this._onSubmit.bind(this);
     }
 
     _onChange = (event) => {
         let value = event.target.value;
+        this._search(value);
         this.setState({
             q: value,
         });
+    }
+
+    _onSubmit = (event) => {
+        event.preventDefault();
+        const { q } = this.state;
+        this._search(q);
+    }
+
+    _search = (value) => {
+        // add delay to make sure all async request are ended
         if(value.length === 0) {
-            setTimeout(()=> {
-                this.props.resetSearch();
-            }, 2000);
+            setTimeout(
+                () => this.props.resetSearch(),
+                3000
+            )
         }
         else if(value.length > 2){
-            setTimeout(()=> {
-                this.props.searchByRepoName(value, 1);
-            }, 1000);
-            
+            this.props.searchByRepoName(value, 1);
         } 
     }
 
@@ -37,6 +47,7 @@ class SearchForm extends Component {
 
         return (
             <div className='container'>
+            <form onSubmit={this._onSubmit}>
                 <input 
                     type='text' 
                     name='search' 
@@ -44,6 +55,7 @@ class SearchForm extends Component {
                     value={q} 
                     onChange={this._onChange} 
                 />
+            </form>
             </div>
         )
     }
