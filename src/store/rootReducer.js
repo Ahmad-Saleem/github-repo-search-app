@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { SEARCH_BY_REPO_NAME } from './actions';
+import { SEARCH_BY_REPO_NAME, RESET_SEARCH } from './actions';
 
 
 const initialState = {
@@ -9,6 +9,14 @@ const initialState = {
 const searchReducer = (state = initialState, action) => {
     switch(action.type){
         case SEARCH_BY_REPO_NAME: {
+            return {
+                ...state,
+                results: {
+                    ...action.payload
+                },
+            }
+        }
+        case RESET_SEARCH: {
             return {
                 ...state,
                 results: {

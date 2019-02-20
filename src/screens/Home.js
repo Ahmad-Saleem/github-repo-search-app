@@ -1,13 +1,21 @@
-import React, { Component } from 'react';
+import React, { Component, Suspense } from 'react';
 import { Layout } from '../components/layout';
-import { SearchForm, SearchResult } from '../components/search';
+import Loader from '../components/misc/Loader';
+import ErrorBoundary from '../components/misc/ErrorBoundary';
+
+const SearchForm = React.lazy(() => import('../components/search/SearchForm'));
+const SearchResult = React.lazy(() => import('../components/search/SearchResult'));
 
 export default class Home extends Component{
     render(){
         return (
             <Layout>
-                <SearchForm />
-                <SearchResult />
+                <ErrorBoundary>
+                    <Suspense fallback={<Loader />}>
+                        <SearchForm />
+                        <SearchResult />
+                    </Suspense>  
+                </ErrorBoundary>
             </Layout>
         );
     }
